@@ -1,0 +1,98 @@
+:root {
+  --cor-primaria: #1E3A8A; /* azul escola */
+  --cor-secundaria: #000000; /* preto */
+  --cor-fundo: #ffffff;
+  --cor-texto: #111111;
+  --cor-acucar: #F87171; /* vermelho para açúcar */
+  --cor-gordura: #FBBF24; /* amarelo para gordura */
+  --cor-sal: #34D399; /* verde para sal */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 0;
+}
+
+header.topo {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .menu a {
+  color: var(--cor-fundo);
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+header .menu a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.cards-comidas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 2px solid var(--cor-primaria);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 250px;
+  background-color: #f0f4ff;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.barra-container {
+  margin-top: 10px;
+}
+
+.barra {
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 0.9rem;
+}
+
+.barra.acucar {
+  background-color: var(--cor-acucar);
+}
+
+.barra.gordura {
+  background-color: var(--cor-gordura);
+}
+
+.barra.sal {
+  background-color: var(--cor-sal);
+}
+
+footer {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-fundo);
+  text-align: center;
+  padding: 20px;
+}
