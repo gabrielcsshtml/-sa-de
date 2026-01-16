@@ -86,8 +86,8 @@ section {
 }
 
 .card-img {
-  width: 180px;      /* imagens maiores */
-  height: 180px;     /* imagens maiores */
+  width: 210px;      /* imagens maiores */
+  height: 210px;     /* imagens maiores */
   object-fit: contain;
   margin-bottom: 15px;
 }
@@ -182,3 +182,4 @@ footer {
     height: 150px;
   }
 }
+
