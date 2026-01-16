@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alimentação na Escola - Profitecla</title>
+  <title>Escola Profitecla - Alimentação</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,13 +23,14 @@
 <main>
   <section id="intro">
     <h2>O que comemos na escola?</h2>
-    <p>Descubra as comidas mais consumidas na nossa escola e o que realmente é saudável.</p>
+    <p style="text-align:center;">Descubra as comidas mais consumidas na nossa escola e o que realmente é saudável.</p>
   </section>
 
   <section id="comidas">
     <h2>Comidas Populares</h2>
     <div class="cards-comidas">
 
+      <!-- Card Nutella -->
       <div class="card">
         <img src="nutella.png" alt="Nutella & Go" class="card-img">
         <h3>Nutella & Go (52 g)</h3>
@@ -39,25 +40,23 @@
           <div class="barra sal" style="width: 6%;">Sal: 0,3g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Contém muito açúcar e gordura, pode causar cáries, aumento de peso e baixa energia.
-        </div>
+        <div class="info-extra">Muito açúcar e gordura, pode causar cáries, aumento de peso e baixa energia.</div>
       </div>
 
+      <!-- Card Milka -->
       <div class="card">
         <img src="milka.png" alt="Chocolate Milka" class="card-img">
         <h3>Chocolate Milka (100 g)</h3>
         <div class="barra-container">
-          <div class="barra acucar" style="width: 112%;">Açúcar: 56g</div>
+          <div class="barra acucar" style="width: 100%;">Açúcar: 56g</div>
           <div class="barra gordura" style="width: 60%;">Gorduras: 30g</div>
           <div class="barra sal" style="width: 6%;">Sal: 0,3g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Muito açúcar e gordura; consumo excessivo pode levar a obesidade e cáries.
-        </div>
+        <div class="info-extra">Muito açúcar e gordura; consumo excessivo pode levar a obesidade e cáries.</div>
       </div>
 
+      <!-- Card Bolinhos -->
       <div class="card">
         <img src="bolinho.png" alt="Bolinhos de chocolate" class="card-img">
         <h3>Bolinhos de chocolate (60 g)</h3>
@@ -67,11 +66,10 @@
           <div class="barra sal" style="width: 8%;">Sal: 0,4g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Contém açúcar e gordura, pode aumentar o risco de cáries e ganho de peso.
-        </div>
+        <div class="info-extra">Contém açúcar e gordura, pode aumentar o risco de cáries e ganho de peso.</div>
       </div>
 
+      <!-- Card Achocolatado -->
       <div class="card">
         <img src="achocolatado.png" alt="Achocolatado" class="card-img">
         <h3>Achocolatado (200 ml)</h3>
@@ -81,25 +79,23 @@
           <div class="barra sal" style="width: 4%;">Sal: 0,2g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Alto teor de açúcar, pode prejudicar dentes e energia constante.
-        </div>
+        <div class="info-extra">Alto teor de açúcar, pode prejudicar dentes e energia constante.</div>
       </div>
 
+      <!-- Card Gomas -->
       <div class="card">
         <img src="gomas.png" alt="Gomas Fini" class="card-img">
         <h3>Gomas Fini (100 g)</h3>
         <div class="barra-container">
-          <div class="barra acucar" style="width: 140%;">Açúcar: 70g</div>
+          <div class="barra acucar" style="width: 100%;">Açúcar: 70g</div>
           <div class="barra gordura" style="width: 0%;">Gorduras: 0g</div>
           <div class="barra sal" style="width: 2%;">Sal: 0,1g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Muito açúcar, sem nutrientes; consumo frequente pode causar hiperatividade e cáries.
-        </div>
+        <div class="info-extra">Muito açúcar, sem nutrientes; consumo frequente pode causar hiperatividade e cáries.</div>
       </div>
 
+      <!-- Card Croissant Chocolate -->
       <div class="card">
         <img src="croissant1.png" alt="Croissant de chocolate" class="card-img">
         <h3>Croissant de chocolate (80 g)</h3>
@@ -109,11 +105,10 @@
           <div class="barra sal" style="width: 12%;">Sal: 0,6g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Açúcar e gordura altos, pode afetar energia e peso corporal.
-        </div>
+        <div class="info-extra">Açúcar e gordura altos, pode afetar energia e peso corporal.</div>
       </div>
 
+      <!-- Card Croissant Simples -->
       <div class="card">
         <img src="croissant2.png" alt="Croissant simples" class="card-img">
         <h3>Croissant simples (70 g)</h3>
@@ -123,11 +118,10 @@
           <div class="barra sal" style="width: 10%;">Sal: 0,5g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Gordura relativamente alta, evite consumo diário.
-        </div>
+        <div class="info-extra">Gordura relativamente alta, evite consumo diário.</div>
       </div>
 
+      <!-- Card Palmieres -->
       <div class="card">
         <img src="palmieres.png" alt="Palmieres" class="card-img">
         <h3>Palmieres (70 g)</h3>
@@ -137,11 +131,10 @@
           <div class="barra sal" style="width: 8%;">Sal: 0,4g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Contém açúcar e gordura, consumo frequente não recomendado.
-        </div>
+        <div class="info-extra">Contém açúcar e gordura, consumo frequente não recomendado.</div>
       </div>
 
+      <!-- Card Travesseiro -->
       <div class="card">
         <img src="travesseiro.png" alt="Travesseiros" class="card-img">
         <h3>Travesseiros (90 g)</h3>
@@ -151,11 +144,10 @@
           <div class="barra sal" style="width: 6%;">Sal: 0,3g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Muito açúcar, pode causar cáries e picos de energia seguidos de fadiga.
-        </div>
+        <div class="info-extra">Muito açúcar, pode causar cáries e picos de energia seguidos de fadiga.</div>
       </div>
 
+      <!-- Card Filipinos -->
       <div class="card">
         <img src="filipinos.png" alt="Filipinos" class="card-img">
         <h3>Filipinos (100 g)</h3>
@@ -165,11 +157,10 @@
           <div class="barra sal" style="width: 10%;">Sal: 0,5g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Açúcar e gordura altos, pode afetar peso e saúde dental.
-        </div>
+        <div class="info-extra">Açúcar e gordura altos, pode afetar peso e saúde dental.</div>
       </div>
 
+      <!-- Card Pringles -->
       <div class="card">
         <img src="pringles.png" alt="Pringles" class="card-img">
         <h3>Pringles (30 g)</h3>
@@ -179,11 +170,10 @@
           <div class="barra sal" style="width: 10%;">Sal: 0,5g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Sal e gordura altos, consumo frequente pode prejudicar pressão e peso.
-        </div>
+        <div class="info-extra">Sal e gordura altos, consumo frequente pode prejudicar pressão e peso.</div>
       </div>
 
+      <!-- Card Doritos -->
       <div class="card">
         <img src="doritos.png" alt="Doritos" class="card-img">
         <h3>Doritos (30 g)</h3>
@@ -193,11 +183,10 @@
           <div class="barra sal" style="width: 12%;">Sal: 0,6g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Sal e gordura presentes, consumo diário pode afetar saúde cardiovascular.
-        </div>
+        <div class="info-extra">Sal e gordura presentes, consumo diário pode afetar saúde cardiovascular.</div>
       </div>
 
+      <!-- Card Cheetos -->
       <div class="card">
         <img src="cheetos.png" alt="Cheetos" class="card-img">
         <h3>Cheetos (30 g)</h3>
@@ -207,20 +196,75 @@
           <div class="barra sal" style="width: 8%;">Sal: 0,4g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Gordura e sal altos, consumo excessivo pode prejudicar saúde.
-        </div>
+        <div class="info-extra">Gordura e sal altos, consumo excessivo pode prejudicar saúde.</div>
       </div>
 
+      <!-- Card Monster -->
       <div class="card">
         <img src="monster.png" alt="Monster" class="card-img">
         <h3>Monster (500 ml)</h3>
         <div class="barra-container">
-          <div class="barra acucar" style="width: 110%;">Açúcar: 55g</div>
+          <div class="barra acucar" style="width: 100%;">Açúcar: 55g</div>
           <div class="barra gordura" style="width: 0%;">Gorduras: 0g</div>
           <div class="barra sal" style="width: 8%;">Sal: 0,4g</div>
         </div>
         <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
-        <div class="info-extra">
-          Muito açúcar e cafeína, pode causar insônia, ansiedade e picos de energia.
-        </div
+        <div class="info-extra">Muito açúcar e cafeína, pode causar insônia, ansiedade e picos de energia.</div>
+      </div>
+
+      <!-- Card Coca-Cola -->
+      <div class="card">
+        <img src="coca cola.png" alt="Coca-Cola" class="card-img">
+        <h3>Coca-Cola (330 ml)</h3>
+        <div class="barra-container">
+          <div class="barra acucar" style="width: 70%;">Açúcar: 35g</div>
+          <div class="barra gordura" style="width: 0%;">Gorduras: 0g</div>
+          <div class="barra sal" style="width: 0%;">Sal: 0g</div>
+        </div>
+        <button class="btn-saibamais" onclick="toggleInfo(this)">Saiba Mais</button>
+        <div class="info-extra">Alto teor de açúcar, pode causar cáries, ganho de peso e picos de energia.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="saudavel">
+    <h2>Comidas Saudáveis</h2>
+    <div class="cards-comidas">
+      <div class="card">
+        <img src="fruta.png" alt="Frutas" class="card-img">
+        <h3>Frutas</h3>
+        <div class="info-extra ativo">Ricas em vitaminas e fibras, ajudam no crescimento e energia.</div>
+      </div>
+      <div class="card">
+        <img src="verdura.png" alt="Verduras" class="card-img">
+        <h3>Verduras</h3>
+        <div class="info-extra ativo">Ricas em fibras e minerais, fortalecem o corpo e melhoram digestão.</div>
+      </div>
+      <div class="card">
+        <img src="graos.png" alt="Grãos Integrais" class="card-img">
+        <h3>Grãos Integrais</h3>
+        <div class="info-extra ativo">Fornecem energia de longa duração e ajudam no crescimento saudável.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <p>Escola Profitecla - Todos os direitos reservados</p>
+</footer>
+
+<script>
+  function toggleInfo(btn) {
+    const info = btn.nextElementSibling;
+    info.classList.toggle('ativo');
+    if (info.classList.contains('ativo')) {
+      info.style.maxHeight = info.scrollHeight + 'px';
+    } else {
+      info.style.maxHeight = '0';
+    }
+  }
+</script>
+
+</body>
+</html>
