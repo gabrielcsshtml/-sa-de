@@ -1,11 +1,14 @@
 :root {
   --cor-primaria: #1E3A8A; /* azul escola */
   --cor-secundaria: #000000; /* preto */
-  --cor-fundo: #ffffff;
+  --cor-fundo: #f5f7fa; /* fundo suave */
   --cor-texto: #111111;
   --cor-acucar: #F87171; /* vermelho para açúcar */
   --cor-gordura: #FBBF24; /* amarelo para gordura */
   --cor-sal: #34D399; /* verde para sal */
+  --cor-card: #ffffff;
+  --cor-botao: #1E3A8A;
+  --cor-botao-hover: #3749B0;
 }
 
 body {
@@ -19,10 +22,21 @@ body {
 header.topo {
   background-color: var(--cor-primaria);
   color: var(--cor-fundo);
-  padding: 20px;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+header .logo-titulo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
 }
 
 header .menu a {
@@ -30,10 +44,11 @@ header .menu a {
   text-decoration: none;
   margin-left: 20px;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 header .menu a:hover {
-  text-decoration: underline;
+  color: #FFD700;
 }
 
 main {
@@ -52,19 +67,34 @@ section {
 
 .card {
   border: 2px solid var(--cor-primaria);
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 15px;
   flex: 1 1 250px;
-  background-color: #f0f4ff;
-  transition: transform 0.3s;
+  background-color: var(--cor-card);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
 .barra-container {
   margin-top: 10px;
+  width: 100%;
 }
 
 .barra {
@@ -76,6 +106,7 @@ section {
   align-items: center;
   padding-left: 10px;
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .barra.acucar {
@@ -90,9 +121,59 @@ section {
   background-color: var(--cor-sal);
 }
 
+.btn-saibamais {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: var(--cor-botao);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-saibamais:hover {
+  background-color: var(--cor-botao-hover);
+  transform: scale(1.05);
+}
+
+.info-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 5px;
+  margin-top: 10px;
+  color: #333;
+  background-color: #f0f4ff;
+  border-left: 4px solid var(--cor-primaria);
+  border-radius: 5px;
+}
+
+.info-extra.ativo {
+  padding: 10px 5px;
+}
+
 footer {
   background-color: var(--cor-secundaria);
   color: var(--cor-fundo);
   text-align: center;
   padding: 20px;
+}
+
+/* Responsividade */
+@media(max-width: 768px){
+  .cards-comidas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header.topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header .menu {
+    margin-top: 10px;
+  }
 }
