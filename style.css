@@ -1,32 +1,48 @@
 :root {
-  --cor-primaria: #1E3A8A;
-  --cor-secundaria: #000000;
-  --cor-fundo: #f5f7fa;
-  --cor-texto: #111111;
+  --cor-primaria: #1E3A8A; /* Azul Profitecla */
+  --cor-secundaria: #000000; /* Preto */
+  --cor-fundo: #121212; /* Fundo escuro */
+  --cor-texto: #ECECEC; /* Texto claro */
   --cor-acucar: #F87171;
   --cor-gordura: #FBBF24;
   --cor-sal: #34D399;
-  --cor-card: #ffffff;
+  --cor-card: #1E1E1E; /* Card escuro */
   --cor-botao: #1E3A8A;
   --cor-botao-hover: #3749B0;
+  --cor-glow: rgba(30, 58, 138, 0.5);
+  --cor-link-hover: #FFD700;
+  --transicao: 0.3s;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+body {
+  font-family: 'Arial', sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   HEADER
+================================ */
 header.topo {
-  background-color: var(--cor-primaria);
+  background: linear-gradient(90deg, var(--cor-primaria), #0f2a6b);
   color: var(--cor-fundo);
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header .logo-titulo {
@@ -38,42 +54,74 @@ header .logo {
   width: 140px;
   height: 100px;
   margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--cor-glow);
 }
 
 header .menu a {
   color: var(--cor-fundo);
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 25px;
   font-weight: bold;
-  transition: color 0.3s;
+  position: relative;
+  transition: color var(--transicao);
 }
 
 header .menu a:hover {
-  color: #FFD700;
+  color: var(--cor-link-hover);
 }
 
+header .menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--cor-link-hover);
+  transition: width var(--transicao);
+}
+
+header .menu a:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   MAIN / SEÇÕES
+================================ */
 main {
   padding: 40px 20px;
 }
 
 section {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 25px;
   color: var(--cor-primaria);
+  font-size: 2rem;
+  text-shadow: 0 0 5px var(--cor-glow);
+}
+
+p {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  color: var(--cor-texto);
 }
 
 /* ===============================
-   CARDS / SLIDER
+   SLIDER / CARDS
 ================================ */
 .slider-container {
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .slider-track {
@@ -87,8 +135,8 @@ h2 {
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
   font-size: 1.5rem;
   display: flex;
@@ -99,11 +147,13 @@ h2 {
   transform: translateY(-50%);
   z-index: 10;
   opacity: 0.8;
-  transition: opacity 0.3s;
+  box-shadow: 0 0 10px var(--cor-glow);
+  transition: opacity var(--transicao), transform var(--transicao);
 }
 
 .slider-btn:hover {
   opacity: 1;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .slider-btn.prev { left: 10px; }
@@ -113,9 +163,9 @@ h2 {
   border: 2px solid var(--cor-primaria);
   border-radius: 15px;
   padding: 20px;
-  flex: 0 0 250px; /* fixa o tamanho no slider */
+  flex: 0 0 250px;
   background-color: var(--cor-card);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
   display: flex;
@@ -125,8 +175,8 @@ h2 {
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.7), 0 0 10px var(--cor-glow);
 }
 
 .card-img {
@@ -134,6 +184,12 @@ h2 {
   height: 220px;
   object-fit: contain;
   margin-bottom: 15px;
+  border-radius: 10px;
+  transition: transform var(--transicao);
+}
+
+.card-img:hover {
+  transform: scale(1.05);
 }
 
 .barra-container {
@@ -151,7 +207,7 @@ h2 {
   padding-left: 10px;
   font-size: 0.9rem;
   font-weight: bold;
-  width: 0; /* Inicial para animação */
+  width: 0;
   transition: width 1s ease;
 }
 
@@ -161,19 +217,21 @@ h2 {
 
 .btn-saibamais {
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 12px 25px;
   background-color: var(--cor-botao);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+  box-shadow: 0 0 10px var(--cor-glow);
 }
 
 .btn-saibamais:hover {
   background-color: var(--cor-botao-hover);
   transform: scale(1.05);
+  box-shadow: 0 0 15px var(--cor-glow);
 }
 
 .info-extra {
@@ -182,8 +240,8 @@ h2 {
   transition: max-height 0.5s ease, padding 0.3s ease;
   padding: 0 5px;
   margin-top: 10px;
-  color: #333;
-  background-color: #f0f4ff;
+  color: #ECECEC;
+  background-color: #111B2B;
   border-left: 4px solid var(--cor-primaria);
   border-radius: 5px;
 }
@@ -192,22 +250,40 @@ h2 {
   padding: 10px 5px;
 }
 
+/* ===============================
+   CARDS SAUDÁVEIS
+================================ */
+.cards-comidas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cards-comidas .card {
+  flex: 0 0 250px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
 footer {
   background-color: var(--cor-secundaria);
   color: var(--cor-fundo);
   text-align: center;
-  padding: 20px;
+  padding: 25px;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
 }
 
 /* ===============================
    RESPONSIVIDADE
 ================================ */
-@media(max-width: 768px){
-  .cards-comidas {
-    flex-direction: column;
-    align-items: center;
-  }
+@media(max-width: 1024px) {
+  .card { flex: 0 0 220px; }
+  .card-img { width: 180px; height: 180px; }
+}
 
+@media(max-width: 768px) {
   header.topo {
     flex-direction: column;
     align-items: center;
@@ -217,20 +293,18 @@ footer {
     margin-top: 15px;
   }
 
-  .card-img {
-    width: 180px;
-    height: 180px;
-  }
+  .card { flex: 0 0 200px; }
+  .card-img { width: 160px; height: 160px; }
 
   .slider-btn {
     width: 35px;
     height: 35px;
     font-size: 1.2rem;
   }
-
-  .card {
-    flex: 0 0 200px;
-  }
 }
 
-
+@media(max-width: 480px) {
+  .card { flex: 0 0 180px; }
+  .card-img { width: 140px; height: 140px; }
+  h2 { font-size: 1.5rem; }
+}
