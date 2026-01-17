@@ -222,11 +222,11 @@
     </div>
   </section>
 
-  <!-- Calculadora por Porção -->
+ <!-- Calculadora de Nutrientes (por porção) -->
   <section id="calculadora">
     <h2>Calculadora de Nutrientes</h2>
     <p style="text-align:center;">Escolha o alimento e a quantidade para ver quanto de açúcar, gordura e sal você consumiu.</p>
-    <div class="calc-container" style="text-align:center; margin-top:20px;">
+    <div class="calc-container">
       <select id="comida">
         <option value="">Selecione uma comida</option>
         <option value="nutella">Nutella & Go</option>
@@ -243,10 +243,10 @@
         <option value="monster">Monster</option>
         <option value="coca">Coca-Cola</option>
       </select>
-      <input type="number" id="quantidade" placeholder="Quantidade" min="1" style="margin-left:10px; padding:5px;">
-      <button id="calcular" class="btn-saibamais" style="margin-left:10px;">Calcular</button>
+      <input type="number" id="quantidade" placeholder="Quantidade" min="1">
+      <button id="calcular" class="btn-saibamais">Calcular</button>
 
-      <div id="resultado" style="margin-top:20px;">
+      <div id="resultado">
         <p>Açúcar: <span id="res-acucar">0</span> g</p>
         <p>Gordura: <span id="res-gordura">0</span> g</p>
         <p>Sal: <span id="res-sal">0</span> g</p>
@@ -254,11 +254,11 @@
     </div>
   </section>
 
-  <!-- Calculadora por Grama -->
+  <!-- Calculadora de Nutrientes (por grama) -->
   <section id="calculadora-grama">
     <h2>Calculadora por Grama</h2>
     <p style="text-align:center;">Digite a quantidade em gramas do alimento para calcular açúcar, gordura e sal.</p>
-    <div class="calc-container" style="text-align:center; margin-top:20px;">
+    <div class="calc-container">
       <select id="comida-grama">
         <option value="">Selecione uma comida</option>
         <option value="nutella">Nutella & Go (52 g)</option>
@@ -275,16 +275,17 @@
         <option value="monster">Monster (500 ml)</option>
         <option value="coca">Coca-Cola (330 ml)</option>
       </select>
-      <input type="number" id="gramas" placeholder="Quantidade em gramas" min="1" style="margin-left:10px; padding:5px;">
-      <button id="calcular-grama" class="btn-saibamais" style="margin-left:10px;">Calcular</button>
+      <input type="number" id="gramas" placeholder="Quantidade em gramas" min="1">
+      <button id="calcular-grama" class="btn-saibamais">Calcular</button>
 
-      <div id="resultado-grama" style="margin-top:20px;">
+      <div id="resultado-grama">
         <p>Açúcar: <span id="res-acucar-grama">0</span> g</p>
         <p>Gordura: <span id="res-gordura-grama">0</span> g</p>
         <p>Sal: <span id="res-sal-grama">0</span> g</p>
       </div>
     </div>
   </section>
+</main>
 
 </main>
 
@@ -298,3 +299,4 @@
 
 </body>
 </html>
+
