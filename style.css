@@ -1,19 +1,23 @@
+/* ===============================
+   VARIÁVEIS DE CORES
+================================ */
 :root {
-  --cor-primaria: #1E3A8A; /* Azul Profitecla */
-  --cor-secundaria: #000000; /* Preto */
-  --cor-fundo: #121212; /* Fundo escuro */
-  --cor-texto: #ECECEC; /* Texto claro */
-  --cor-acucar: #F87171;
-  --cor-gordura: #FBBF24;
-  --cor-sal: #34D399;
-  --cor-card: #1E1E1E; /* Card escuro */
-  --cor-botao: #1E3A8A;
-  --cor-botao-hover: #3749B0;
-  --cor-glow: rgba(30, 58, 138, 0.5);
-  --cor-link-hover: #FFD700;
+  --cor-primaria: #2C3E70; /* azul suave da escola */
+  --cor-secundaria: #000000; /* preto */
+  --cor-fundo: #f5f7fa; /* fundo leve */
+  --cor-texto: #111111;
+  --cor-acucar: #F87171; /* vermelho suave */
+  --cor-gordura: #FBBF24; /* amarelo pastel */
+  --cor-sal: #34D399; /* verde suave */
+  --cor-card: #ffffff;
+  --cor-botao: #2C3E70;
+  --cor-botao-hover: #3B4F8A;
   --transicao: 0.3s;
 }
 
+/* ===============================
+   RESET E BODY
+================================ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,8 +25,8 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: var(--cor-fundo);
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: var(--cor-fundo);
   color: var(--cor-texto);
   line-height: 1.6;
   overflow-x: hidden;
@@ -32,17 +36,17 @@ body {
    HEADER
 ================================ */
 header.topo {
-  background: linear-gradient(90deg, var(--cor-primaria), #0f2a6b);
-  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+  color: #fff;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 header .logo-titulo {
@@ -55,20 +59,19 @@ header .logo {
   height: 100px;
   margin-right: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px var(--cor-glow);
 }
 
 header .menu a {
-  color: var(--cor-fundo);
+  color: #fff;
   text-decoration: none;
   margin-left: 25px;
-  font-weight: bold;
+  font-weight: 600;
   position: relative;
   transition: color var(--transicao);
 }
 
 header .menu a:hover {
-  color: var(--cor-link-hover);
+  color: #FFD700;
 }
 
 header .menu a::after {
@@ -78,7 +81,7 @@ header .menu a::after {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--cor-link-hover);
+  background-color: #FFD700;
   transition: width var(--transicao);
 }
 
@@ -102,7 +105,6 @@ h2 {
   margin-bottom: 25px;
   color: var(--cor-primaria);
   font-size: 2rem;
-  text-shadow: 0 0 5px var(--cor-glow);
 }
 
 p {
@@ -131,14 +133,14 @@ p {
 }
 
 .slider-btn {
-  background-color: var(--cor-primaria);
+  background-color: var(--cor-botao);
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,25 +149,25 @@ p {
   transform: translateY(-50%);
   z-index: 10;
   opacity: 0.8;
-  box-shadow: 0 0 10px var(--cor-glow);
   transition: opacity var(--transicao), transform var(--transicao);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .slider-btn:hover {
   opacity: 1;
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .slider-btn.prev { left: 10px; }
 .slider-btn.next { right: 10px; }
 
 .card {
-  border: 2px solid var(--cor-primaria);
-  border-radius: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
   padding: 20px;
   flex: 0 0 250px;
   background-color: var(--cor-card);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
   display: flex;
@@ -175,8 +177,8 @@ p {
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.7), 0 0 10px var(--cor-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 .card-img {
@@ -184,12 +186,7 @@ p {
   height: 220px;
   object-fit: contain;
   margin-bottom: 15px;
-  border-radius: 10px;
-  transition: transform var(--transicao);
-}
-
-.card-img:hover {
-  transform: scale(1.05);
+  border-radius: 8px;
 }
 
 .barra-container {
@@ -198,15 +195,15 @@ p {
 }
 
 .barra {
-  height: 20px;
+  height: 18px;
   border-radius: 5px;
   margin-bottom: 5px;
   color: #fff;
   display: flex;
   align-items: center;
   padding-left: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 600;
   width: 0;
   transition: width 1s ease;
 }
@@ -217,21 +214,19 @@ p {
 
 .btn-saibamais {
   margin-top: 10px;
-  padding: 12px 25px;
+  padding: 10px 20px;
   background-color: var(--cor-botao);
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
-  box-shadow: 0 0 10px var(--cor-glow);
+  font-weight: 600;
+  transition: background-color var(--transicao), transform var(--transicao);
 }
 
 .btn-saibamais:hover {
   background-color: var(--cor-botao-hover);
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--cor-glow);
+  transform: scale(1.03);
 }
 
 .info-extra {
@@ -240,8 +235,8 @@ p {
   transition: max-height 0.5s ease, padding 0.3s ease;
   padding: 0 5px;
   margin-top: 10px;
-  color: #ECECEC;
-  background-color: #111B2B;
+  color: #333;
+  background-color: #f0f4ff;
   border-left: 4px solid var(--cor-primaria);
   border-radius: 5px;
 }
@@ -269,10 +264,10 @@ p {
 ================================ */
 footer {
   background-color: var(--cor-secundaria);
-  color: var(--cor-fundo);
+  color: #fff;
   text-align: center;
   padding: 25px;
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
 }
 
 /* ===============================
@@ -284,23 +279,11 @@ footer {
 }
 
 @media(max-width: 768px) {
-  header.topo {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  header .menu {
-    margin-top: 15px;
-  }
-
+  header.topo { flex-direction: column; align-items: center; }
+  header .menu { margin-top: 15px; }
   .card { flex: 0 0 200px; }
   .card-img { width: 160px; height: 160px; }
-
-  .slider-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
-  }
+  .slider-btn { width: 35px; height: 35px; font-size: 1.2rem; }
 }
 
 @media(max-width: 480px) {
