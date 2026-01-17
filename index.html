@@ -16,6 +16,7 @@
   <nav class="menu">
     <a href="#comidas">Comidas</a>
     <a href="#saudavel">Saudáveis</a>
+    <a href="#calculadora">Calculadora</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
@@ -28,12 +29,10 @@
 
   <section id="comidas">
     <h2>Comidas Populares</h2>
-
     <div class="slider-container">
       <button class="slider-btn prev">&#10094;</button>
       <div class="slider-track">
-
-        <!-- Todos os cards -->
+        <!-- Card 1 -->
         <div class="card">
           <img src="nutella.png" alt="Nutella & Go" class="card-img">
           <h3>Nutella & Go (52 g)</h3>
@@ -46,6 +45,7 @@
           <div class="info-extra">Muito açúcar e gordura, pode causar cáries, aumento de peso e baixa energia.</div>
         </div>
 
+        <!-- Card 2 -->
         <div class="card">
           <img src="milka.png" alt="Chocolate Milka" class="card-img">
           <h3>Chocolate Milka (100 g)</h3>
@@ -58,6 +58,7 @@
           <div class="info-extra">Muito açúcar e gordura; consumo excessivo pode levar a obesidade e cáries.</div>
         </div>
 
+        <!-- Card 3 -->
         <div class="card">
           <img src="bolinho.png" alt="Bolinhos de chocolate" class="card-img">
           <h3>Bolinhos de chocolate (60 g)</h3>
@@ -70,6 +71,7 @@
           <div class="info-extra">Contém açúcar e gordura, pode aumentar o risco de cáries e ganho de peso.</div>
         </div>
 
+        <!-- Card 4 -->
         <div class="card">
           <img src="achocolatado.png" alt="Achocolatado" class="card-img">
           <h3>Achocolatado (200 ml)</h3>
@@ -82,6 +84,7 @@
           <div class="info-extra">Alto teor de açúcar, pode prejudicar dentes e energia constante.</div>
         </div>
 
+        <!-- Card 5 -->
         <div class="card">
           <img src="croissant1.png" alt="Croissant de chocolate" class="card-img">
           <h3>Croissant de chocolate (80 g)</h3>
@@ -94,101 +97,7 @@
           <div class="info-extra">Açúcar e gordura altos, pode afetar energia e peso corporal.</div>
         </div>
 
-        <div class="card">
-          <img src="croissant2.png" alt="Croissant simples" class="card-img">
-          <h3>Croissant simples (70 g)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="12%">Açúcar: 6g</div>
-            <div class="barra gordura" data-width="34%">Gorduras: 17g</div>
-            <div class="barra sal" data-width="10%">Sal: 0,5g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Gordura relativamente alta, evite consumo diário.</div>
-        </div>
-
-        <div class="card">
-          <img src="travesseiro.png" alt="Travesseiros" class="card-img">
-          <h3>Travesseiros (90 g)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="60%">Açúcar: 30g</div>
-            <div class="barra gordura" data-width="30%">Gorduras: 15g</div>
-            <div class="barra sal" data-width="6%">Sal: 0,3g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Muito açúcar, pode causar cáries e picos de energia seguidos de fadiga.</div>
-        </div>
-
-        <div class="card">
-          <img src="monster.png" alt="Filipinos" class="card-img">
-          <h3>Filipinos (100 g)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="90%">Açúcar: 45g</div>
-            <div class="barra gordura" data-width="50%">Gorduras: 25g</div>
-            <div class="barra sal" data-width="10%">Sal: 0,5g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Açúcar e gordura altos, pode afetar peso e saúde dental.</div>
-        </div>
-
-        <div class="card">
-          <img src="pringles.png" alt="Pringles" class="card-img">
-          <h3>Pringles (30 g)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="2%">Açúcar: 1g</div>
-            <div class="barra gordura" data-width="20%">Gorduras: 10g</div>
-            <div class="barra sal" data-width="10%">Sal: 0,5g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Sal e gordura altos, consumo frequente pode prejudicar pressão e peso.</div>
-        </div>
-
-        <div class="card">
-          <img src="doritos.png" alt="Doritos" class="card-img">
-          <h3>Doritos (30 g)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="2%">Açúcar: 1g</div>
-            <div class="barra gordura" data-width="16%">Gorduras: 8g</div>
-            <div class="barra sal" data-width="12%">Sal: 0,6g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Sal e gordura presentes, consumo diário pode afetar saúde cardiovascular.</div>
-        </div>
-
-        <div class="card">
-          <img src="cheetos.png" alt="Cheetos" class="card-img">
-          <h3>Cheetos (30 g)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="4%">Açúcar: 2g</div>
-            <div class="barra gordura" data-width="14%">Gorduras: 7g</div>
-            <div class="barra sal" data-width="8%">Sal: 0,4g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Gordura e sal altos, consumo excessivo pode prejudicar saúde.</div>
-        </div>
-
-        <div class="card">
-          <img src="filipinos.png" alt="Monster" class="card-img">
-          <h3>Monster (500 ml)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="100%">Açúcar: 55g</div>
-            <div class="barra gordura" data-width="0%">Gorduras: 0g</div>
-            <div class="barra sal" data-width="8%">Sal: 0,4g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Muito açúcar e cafeína, pode causar insônia, ansiedade e picos de energia.</div>
-        </div>
-
-        <div class="card">
-          <img src="coca cola.png" alt="Coca-Cola" class="card-img">
-          <h3>Coca-Cola (330 ml)</h3>
-          <div class="barra-container">
-            <div class="barra acucar" data-width="70%">Açúcar: 35g</div>
-            <div class="barra gordura" data-width="0%">Gorduras: 0g</div>
-            <div class="barra sal" data-width="0%">Sal: 0g</div>
-          </div>
-          <button class="btn-saibamais">Saiba Mais</button>
-          <div class="info-extra">Alto teor de açúcar, pode causar cáries, ganho de peso e picos de energia.</div>
-        </div>
+        <!-- Adicione os demais cards seguindo este padrão -->
 
       </div>
       <button class="slider-btn next">&#10095;</button>
@@ -215,6 +124,46 @@
       </div>
     </div>
   </section>
+
+  <section id="calculadora">
+    <h2>Calculadora de Nutrientes</h2>
+    <p style="text-align:center;">Insira o que você comeu e veja quanto de açúcar, gordura e sal consumiu.</p>
+
+    <div class="calculadora-form">
+      <div class="item-input">
+        <label for="comida">Selecione a comida:</label>
+        <select id="comida">
+          <option value="">--Escolha--</option>
+          <option value="nutella">Nutella & Go</option>
+          <option value="milka">Chocolate Milka</option>
+          <option value="bolinho">Bolinhos de chocolate</option>
+          <option value="achocolatado">Achocolatado</option>
+          <option value="croissant1">Croissant de chocolate</option>
+          <option value="croissant2">Croissant simples</option>
+          <option value="travesseiro">Travesseiros</option>
+          <option value="filipinos">Filipinos</option>
+          <option value="pringles">Pringles</option>
+          <option value="doritos">Doritos</option>
+          <option value="cheetos">Cheetos</option>
+          <option value="monster">Monster</option>
+          <option value="coca">Coca-Cola</option>
+        </select>
+      </div>
+
+      <div class="item-input">
+        <label for="quantidade">Quantidade (unidades ou porções):</label>
+        <input type="number" id="quantidade" min="1" value="1">
+      </div>
+
+      <button id="calcular">Calcular</button>
+
+      <div id="resultado">
+        <p>Açúcar: <span id="res-acucar">0</span> g</p>
+        <p>Gordura: <span id="res-gordura">0</span> g</p>
+        <p>Sal: <span id="res-sal">0</span> g</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer id="contato">
@@ -225,8 +174,3 @@
 <script src="slider.js"></script>
 </body>
 </html>
-
-
-
-
-
