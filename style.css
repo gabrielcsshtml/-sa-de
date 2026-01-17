@@ -195,16 +195,20 @@ p {
 }
 
 .barra {
-  height: 18px;
+  height: 24px; /* maior para caber o texto */
   border-radius: 5px;
   margin-bottom: 5px;
   color: #fff;
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  justify-content: flex-start;
+  padding: 0 10px;
   font-size: 0.85rem;
   font-weight: 600;
   width: 0;
+  overflow: hidden; /* evita que o texto saia da barra */
+  white-space: nowrap;
+  text-overflow: ellipsis;
   transition: width 1s ease;
 }
 
@@ -243,6 +247,7 @@ p {
 
 .info-extra.ativo {
   padding: 10px 5px;
+  max-height: 500px; /* garante espaço suficiente para mostrar o texto */
 }
 
 /* ===============================
@@ -257,6 +262,72 @@ p {
 
 .cards-comidas .card {
   flex: 0 0 250px;
+}
+
+/* ===============================
+   CALCULADORA DE NUTRIENTES
+================================ */
+#calculadora {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  padding: 30px 20px;
+  background-color: var(--cor-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.calculadora-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.item-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.item-input label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.item-input input,
+.item-input select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#calcular {
+  padding: 10px 20px;
+  background-color: var(--cor-botao);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transicao), transform var(--transicao);
+}
+
+#calcular:hover {
+  background-color: var(--cor-botao-hover);
+  transform: scale(1.03);
+}
+
+#resultado {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #f0f4ff;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--cor-primaria);
+  font-weight: 600;
+  text-align: center;
+  color: var(--cor-texto);
 }
 
 /* ===============================
