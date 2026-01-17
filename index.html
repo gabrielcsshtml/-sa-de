@@ -17,6 +17,7 @@
     <a href="#comidas">Comidas</a>
     <a href="#saudavel">Saudáveis</a>
     <a href="#calculadora">Calculadora</a>
+    <a href="#calculadora-grama">Calculadora por Grama</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
@@ -121,7 +122,7 @@
         </div>
 
         <div class="card">
-          <img src="monster.png" alt="Filipinos" class="card-img">
+          <img src="filipinos.png" alt="Filipinos" class="card-img">
           <h3>Filipinos (100 g)</h3>
           <div class="barra-container">
             <div class="barra acucar" data-width="90%">Açúcar: 45g</div>
@@ -169,7 +170,7 @@
         </div>
 
         <div class="card">
-          <img src="filipinos.png" alt="Monster" class="card-img">
+          <img src="monster.png" alt="Monster" class="card-img">
           <h3>Monster (500 ml)</h3>
           <div class="barra-container">
             <div class="barra acucar" data-width="100%">Açúcar: 55g</div>
@@ -221,7 +222,7 @@
     </div>
   </section>
 
-  <!-- Calculadora de Nutrientes -->
+  <!-- Calculadora por Porção -->
   <section id="calculadora">
     <h2>Calculadora de Nutrientes</h2>
     <p style="text-align:center;">Escolha o alimento e a quantidade para ver quanto de açúcar, gordura e sal você consumiu.</p>
@@ -252,6 +253,39 @@
       </div>
     </div>
   </section>
+
+  <!-- Calculadora por Grama -->
+  <section id="calculadora-grama">
+    <h2>Calculadora por Grama</h2>
+    <p style="text-align:center;">Digite a quantidade em gramas do alimento para calcular açúcar, gordura e sal.</p>
+    <div class="calc-container" style="text-align:center; margin-top:20px;">
+      <select id="comida-grama">
+        <option value="">Selecione uma comida</option>
+        <option value="nutella">Nutella & Go (52 g)</option>
+        <option value="milka">Chocolate Milka (100 g)</option>
+        <option value="bolinho">Bolinhos de Chocolate (60 g)</option>
+        <option value="achocolatado">Achocolatado (200 ml)</option>
+        <option value="croissant1">Croissant de Chocolate (80 g)</option>
+        <option value="croissant2">Croissant Simples (70 g)</option>
+        <option value="travesseiro">Travesseiros (90 g)</option>
+        <option value="filipinos">Filipinos (100 g)</option>
+        <option value="pringles">Pringles (30 g)</option>
+        <option value="doritos">Doritos (30 g)</option>
+        <option value="cheetos">Cheetos (30 g)</option>
+        <option value="monster">Monster (500 ml)</option>
+        <option value="coca">Coca-Cola (330 ml)</option>
+      </select>
+      <input type="number" id="gramas" placeholder="Quantidade em gramas" min="1" style="margin-left:10px; padding:5px;">
+      <button id="calcular-grama" class="btn-saibamais" style="margin-left:10px;">Calcular</button>
+
+      <div id="resultado-grama" style="margin-top:20px;">
+        <p>Açúcar: <span id="res-acucar-grama">0</span> g</p>
+        <p>Gordura: <span id="res-gordura-grama">0</span> g</p>
+        <p>Sal: <span id="res-sal-grama">0</span> g</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer id="contato">
@@ -264,4 +298,3 @@
 
 </body>
 </html>
-
