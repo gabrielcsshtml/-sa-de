@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.querySelector(".slider-btn.next");
 
   const cards = document.querySelectorAll(".card");
-  const gap = 20;
+  const gap = 30;
   let index = 0;
 
   function getCardWidth() {
@@ -35,3 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ajusta ao redimensionar a tela
   window.addEventListener("resize", updateSlider);
 });
+
