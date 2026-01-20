@@ -62,39 +62,3 @@ nextBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', updateSlider);
-
-// ===============================
-// CALCULADORA DE NUTRIENTES
-// ===============================
-const alimentos = {
-  nutella: { acucar: 22, gordura: 22, sal: 0.3 },
-  milka: { acucar: 56, gordura: 30, sal: 0.3 },
-  bolinho: { acucar: 25, gordura: 15, sal: 0.4 },
-  achocolatado: { acucar: 22, gordura: 2, sal: 0.2 },
-  croissant1: { acucar: 18, gordura: 20, sal: 0.6 },
-  croissant2: { acucar: 6, gordura: 17, sal: 0.5 },
-  travesseiro: { acucar: 30, gordura: 15, sal: 0.3 },
-  filipinos: { acucar: 45, gordura: 25, sal: 0.5 },
-  pringles: { acucar: 1, gordura: 10, sal: 0.5 },
-  doritos: { acucar: 1, gordura: 8, sal: 0.6 },
-  cheetos: { acucar: 2, gordura: 7, sal: 0.4 },
-  monster: { acucar: 55, gordura: 0, sal: 0.4 },
-  coca: { acucar: 35, gordura: 0, sal: 0 }
-};
-
-const calcularBtn = document.getElementById('calcular');
-
-calcularBtn.addEventListener('click', () => {
-  const comida = document.getElementById('comida').value;
-  const quantidade = Number(document.getElementById('quantidade').value);
-
-  if(!comida || quantidade <= 0) {
-    alert("Escolha uma comida válida e quantidade maior que 0!");
-    return;
-  }
-
-  const dados = alimentos[comida];
-  document.getElementById('res-acucar').innerText = (dados.acucar * quantidade).toFixed(1);
-  document.getElementById('res-gordura').innerText = (dados.gordura * quantidade).toFixed(1);
-  document.getElementById('res-sal').innerText = (dados.sal * quantidade).toFixed(1);
-});
