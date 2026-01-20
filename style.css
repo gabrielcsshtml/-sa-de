@@ -123,12 +123,12 @@ p {
   align-items: center;
   overflow: hidden;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1250px;
 }
 
 .slider-track {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   transition: transform 0.5s ease;
 }
 
@@ -164,8 +164,8 @@ p {
 .card {
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 20px;
-  flex: 0 0 250px;
+  padding: 25px;
+  flex: 0 0 255px;
   background-color: var(--cor-card);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -182,15 +182,15 @@ p {
 }
 
 .card-img {
-  width: 220px;
-  height: 220px;
+  width: 230px;
+  height: 230px;
   object-fit: contain;
-  margin-bottom: 15px;
-  border-radius: 8px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .barra-container {
-  margin-top: 10px;
+  margin-top: 15px;
   width: 100%;
 }
 
@@ -237,7 +237,7 @@ p {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 12px;
+  padding: 0 15px;
 }
 
 .info-extra.ativo {
@@ -250,12 +250,12 @@ p {
 .cards-comidas {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
 .cards-comidas .card {
-  flex: 0 0 250px;
+  flex: 0 0 260px;
 }
 
 /* ===============================
@@ -374,3 +374,4 @@ footer {
     margin-top: 10px;
   }
 }
+
