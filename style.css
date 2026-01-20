@@ -162,10 +162,10 @@ p {
 .slider-btn.next { right: 10px; }
 
 .card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 25px;
-  flex: 0 0 255px;
+  border:   15px solid #ddd;
+  border-radius: 15px;
+  padding: 30px;
+  flex: 0 0 265px;
   background-color: var(--cor-card);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -374,4 +374,5 @@ footer {
     margin-top: 10px;
   }
 }
+
 
