@@ -169,7 +169,7 @@ p {
   background-color: var(--cor-card);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
+  /* overflow: hidden; ❌ REMOVIDO PARA “Saiba Mais” */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,7 +195,7 @@ p {
 }
 
 .barra {
-  height: 24px; /* maior para caber o texto */
+  height: 24px;
   border-radius: 5px;
   margin-bottom: 5px;
   color: #fff;
@@ -206,7 +206,7 @@ p {
   font-size: 0.85rem;
   font-weight: 600;
   width: 0;
-  overflow: hidden; /* evita que o texto saia da barra */
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   transition: width 1s ease;
@@ -237,18 +237,11 @@ p {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 10px;
+  padding: 0 12px;
 }
 
 .info-extra.ativo {
-  padding: 10px;
-}
-
-}
-
-.info-extra.ativo {
-  padding: 10px 5px;
-  max-height: 500px; /* garante espaço suficiente para mostrar o texto */
+  padding: 12px;
 }
 
 /* ===============================
@@ -268,7 +261,7 @@ p {
 /* ===============================
    CALCULADORA DE NUTRIENTES
 ================================ */
-#calculadora {
+#calculadora, #calculadora-grama {
   max-width: 700px;
   margin: 0 auto 60px auto;
   padding: 30px 20px;
@@ -277,58 +270,62 @@ p {
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-.calculadora-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
+.calc-container {
+  background-color: #f5f7fa;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.item-input {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.item-input label {
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.item-input input,
-.item-input select {
+.calc-container select,
+.calc-container input[type="number"] {
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
 }
 
-#calcular {
-  padding: 10px 20px;
-  background-color: var(--cor-botao);
+.calc-container select:focus,
+.calc-container input[type="number"]:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 6px rgba(30, 58, 138, 0.3);
+}
+
+.calc-container .btn-saibamais {
+  background-color: var(--cor-primaria);
   color: #fff;
   border: none;
+  padding: 10px 18px;
   border-radius: 8px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--transicao), transform var(--transicao);
+  font-size: 16px;
+  transition: 0.2s;
 }
 
-#calcular:hover {
-  background-color: var(--cor-botao-hover);
-  transform: scale(1.03);
+.calc-container .btn-saibamais:hover {
+  background-color: #163c8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(30,58,138,0.3);
 }
 
-#resultado {
-  margin-top: 15px;
-  width: 100%;
-  background-color: #f0f4ff;
+#resultado, #resultado-grama {
+  background-color: #fff;
+  border-radius: 10px;
   padding: 15px;
-  border-radius: 8px;
-  border-left: 4px solid var(--cor-primaria);
-  font-weight: 600;
-  text-align: center;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 16px;
   color: var(--cor-texto);
+  text-align: center;
+}
+
+#resultado p, #resultado-grama p {
+  margin: 8px 0;
+  font-weight: 500;
 }
 
 /* ===============================
@@ -362,77 +359,6 @@ footer {
   .card { flex: 0 0 180px; }
   .card-img { width: 140px; height: 140px; }
   h2 { font-size: 1.5rem; }
-}
-
-/* ===============================
-   CALCULADORAS - ESTILO FINAL
-================================ */
-
-/* Container das calculadoras */
-.calc-container {
-  background-color: #f5f7fa;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 20px auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* Select e input de quantidade/gramas */
-.calc-container select,
-.calc-container input[type="number"] {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  outline: none;
-  transition: 0.2s;
-}
-
-.calc-container select:focus,
-.calc-container input[type="number"]:focus {
-  border-color: var(--cor-primaria);
-  box-shadow: 0 0 6px rgba(30, 58, 138, 0.3);
-}
-
-/* Botão calcular */
-.calc-container .btn-saibamais {
-  background-color: var(--cor-primaria);
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.2s;
-}
-
-.calc-container .btn-saibamais:hover {
-  background-color: #163c8a;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(30,58,138,0.3);
-}
-
-/* Resultados */
-#resultado, #resultado-grama {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  margin-top: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-size: 16px;
-  color: var(--cor-texto);
-  text-align: center;
-}
-
-/* Cada linha de resultado */
-#resultado p, #resultado-grama p {
-  margin: 8px 0;
-  font-weight: 500;
-}
-
-/* Responsividade */
-@media (max-width: 480px) {
   .calc-container {
     padding: 15px;
   }
@@ -448,4 +374,3 @@ footer {
     margin-top: 10px;
   }
 }
-
