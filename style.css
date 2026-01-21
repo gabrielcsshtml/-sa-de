@@ -167,6 +167,7 @@ p {
   flex-direction: column;
   gap: 5px; /* espaço entre barras */
 }
+
 /* ===============================
    BARRAS NUTRICIONAIS (AJUSTADAS)
 ================================ */
@@ -241,7 +242,6 @@ p {
 .cards-comidas .card {
   flex: 0 0 260px;
 }
-
 /* ===============================
    CALCULADORA DE NUTRIENTES
 ================================ */
@@ -261,6 +261,9 @@ p {
   max-width: 600px;
   margin: 20px auto;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .calc-container select,
@@ -271,6 +274,7 @@ p {
   font-size: 16px;
   outline: none;
   transition: 0.2s;
+  width: 100%;
 }
 
 .calc-container select:focus,
@@ -288,6 +292,7 @@ p {
   cursor: pointer;
   font-size: 16px;
   transition: 0.2s;
+  width: 100%;
 }
 
 .calc-container .btn-saibamais:hover {
@@ -333,7 +338,6 @@ footer {
 
 @media(max-width: 768px) {
   header.topo { flex-direction: column; align-items: center; }
-  header .menu { margin-top: 15px; }
   .card { flex: 0 0 200px; }
   .card-img { width: 160px; height: 160px; }
   .slider-btn { width: 35px; height: 35px; font-size: 1.2rem; }
@@ -343,6 +347,8 @@ footer {
   .card { flex: 0 0 180px; }
   .card-img { width: 140px; height: 140px; }
   h2 { font-size: 1.5rem; }
+
+  /* Calculadoras responsivas */
   .calc-container {
     padding: 15px;
   }
@@ -356,5 +362,12 @@ footer {
   .calc-container .btn-saibamais {
     width: 100%;
     margin-top: 10px;
+  }
+
+  /* Barras nutricionais adaptáveis */
+  .barra {
+    font-size: 0.75rem;
+    padding: 0 4px;
+    height: 20px;
   }
 }
