@@ -1,40 +1,39 @@
-/* ===============================
-   SLIDER DE CARDS
-================================ */
-const sliderTrack = document.querySelector(".slider-track");
-const prevBtn = document.querySelector(".slider-btn.prev");
-const nextBtn = document.querySelector(".slider-btn.next");
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".slider-track");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
 
-let slideIndex = 0;
+  const cards = document.querySelectorAll(".card");
+  const gap = 30;
+  let index = 0;
 
-function getSlideWidth() {
-  const card = document.querySelector(".slider-track .card");
-  if (!card) return 0;
-  return card.offsetWidth + 25; // card + gap
-}
-
-function updateSlider() {
-  const slideWidth = getSlideWidth();
-  sliderTrack.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
-}
-
-// Botão próximo
-nextBtn.addEventListener("click", () => {
-  const cards = document.querySelectorAll(".slider-track .card").length;
-  const visibleCards = Math.floor(document.querySelector(".slider-container").offsetWidth / getSlideWidth());
-  if (slideIndex < cards - visibleCards) {
-    slideIndex++;
-    updateSlider();
+  function getCardWidth() {
+    return cards[0].offsetWidth + gap;
   }
+
+  function updateSlider() {
+    const cardWidth = getCardWidth();
+    const translateX = index * cardWidth;
+    track.style.transform = `translateX(-${translateX}px)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    const visibleCards = Math.floor(track.parentElement.offsetWidth / getCardWidth());
+    if (index < cards.length - visibleCards) {
+      index++;
+      updateSlider();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      updateSlider();
+    }
+  });
+
+  // Ajusta ao redimensionar a tela
+  window.addEventListener("resize", updateSlider);
 });
 
-// Botão anterior
-prevBtn.addEventListener("click", () => {
-  if (slideIndex > 0) {
-    slideIndex--;
-    updateSlider();
-  }
-});
 
-// Atualiza slider ao redimensionar a tela
-window.addEventListener("resize", updateSlider);
