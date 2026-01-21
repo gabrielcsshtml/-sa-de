@@ -2,14 +2,14 @@
    VARIÁVEIS DE CORES
 ================================ */
 :root {
-  --cor-primaria: #2C3E70; /* azul suave da escola */
-  --cor-secundaria: #000000; /* preto */
-  --cor-fundo: #f5f7fa; /* fundo leve */
+  --cor-primaria: #2C3E70;
+  --cor-secundaria: #000000;
+  --cor-fundo: #f5f7fa;
   --cor-texto: #111111;
-  --cor-acucar: #F87171; /* vermelho suave */
-  --cor-gordura: #FBBF24; /* amarelo pastel */
-  --cor-sal: #34D399; /* verde suave */
-  --cor-caloria: #60A5FA; /* azul claro para calorias */
+  --cor-acucar: #F87171;
+  --cor-gordura: #FBBF24;
+  --cor-sal: #34D399;
+  --cor-caloria: #9B59B6; /* Roxo suave */
   --cor-card: #ffffff;
   --cor-botao: #2C3E70;
   --cor-botao-hover: #3B4F8A;
@@ -60,6 +60,34 @@ header .logo {
   height: 100px;
   margin-right: 20px;
   border-radius: 10px;
+}
+
+header .menu a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 600;
+  position: relative;
+  transition: color var(--transicao);
+}
+
+header .menu a:hover {
+  color: #FFD700;
+}
+
+header .menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #FFD700;
+  transition: width var(--transicao);
+}
+
+header .menu a:hover::after {
+  width: 100%;
 }
 
 /* ===============================
@@ -134,9 +162,6 @@ p {
 .slider-btn.prev { left: 10px; }
 .slider-btn.next { right: 10px; }
 
-/* ===============================
-   CARD
-================================ */
 .card {
   border: 15px solid #ddd;
   border-radius: 15px;
@@ -149,7 +174,6 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  overflow: visible; /* permite o card crescer */
 }
 
 .card:hover {
@@ -165,32 +189,27 @@ p {
   border-radius: 10px;
 }
 
-/* ===============================
-   BARRAS
-================================ */
 .barra-container {
   margin-top: 15px;
   width: 100%;
-  position: relative;
 }
 
 .barra {
-  height: 26px;
+  height: 24px;
   border-radius: 5px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
+  color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 8px;
+  justify-content: flex-start;
+  padding: 0 10px;
   font-size: 0.85rem;
   font-weight: 600;
   width: 0;
-  min-width: fit-content;
-  color: #000;
-  background-color: #ddd;
-  position: relative;
-  overflow: visible;          /* texto nunca corta */
+  min-width: 40px; /* garante texto mesmo em 0g */
+  overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
   transition: width 1s ease;
 }
 
@@ -199,9 +218,6 @@ p {
 .barra.sal { background-color: var(--cor-sal); }
 .barra.caloria { background-color: var(--cor-caloria); }
 
-/* ===============================
-   BOTÃO
-================================ */
 .btn-saibamais {
   margin-top: 10px;
   padding: 10px 20px;
@@ -219,20 +235,16 @@ p {
   transform: scale(1.03);
 }
 
-/* ===============================
-   INFO EXTRA (SAIBA MAIS)
-================================ */
 .info-extra {
-  width: 100%;
-  overflow: hidden;
   max-height: 0;
+  overflow: hidden;
   transition: max-height 0.5s ease, padding 0.3s ease;
   padding: 0 15px;
+  text-align: justify;
 }
 
 .info-extra.ativo {
   padding: 12px;
-  max-height: 1000px; /* grande o suficiente para qualquer texto */
 }
 
 /* ===============================
@@ -340,6 +352,7 @@ footer {
 
 @media(max-width: 768px) {
   header.topo { flex-direction: column; align-items: center; }
+  header .menu { margin-top: 15px; }
   .card { flex: 0 0 200px; }
   .card-img { width: 160px; height: 160px; }
   .slider-btn { width: 35px; height: 35px; font-size: 1.2rem; }
@@ -349,7 +362,9 @@ footer {
   .card { flex: 0 0 180px; }
   .card-img { width: 140px; height: 140px; }
   h2 { font-size: 1.5rem; }
-  .calc-container { padding: 15px; }
+  .calc-container {
+    padding: 15px;
+  }
 
   .calc-container select,
   .calc-container input[type="number"] {
