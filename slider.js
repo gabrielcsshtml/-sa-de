@@ -12,14 +12,23 @@ function toggleInfo(btn) {
 }
 
 // ===============================
-// Função para animar as barras de nutrientes
+// Função para animar as barras de nutrientes (0g com barra mínima)
 // ===============================
 function animateBars() {
   const barras = document.querySelectorAll('.barra');
+
   barras.forEach((bar, index) => {
     const width = bar.getAttribute('data-width');
+    const valorNumerico = parseFloat(width);
+
     setTimeout(() => {
-      bar.style.width = width;
+      if(valorNumerico === 0) {
+        bar.style.width = "12%";
+        bar.style.opacity = "0.6";
+      } else {
+        bar.style.width = width;
+        bar.style.opacity = "1";
+      }
     }, index * 100); // efeito cascata
   });
 }
@@ -37,29 +46,59 @@ document.querySelectorAll('.btn-saibamais').forEach(btn => {
 window.addEventListener('load', animateBars);
 
 // ===============================
-// SLIDER FUNCIONAL
+// SLIDER FUNCIONAL COM LOOP INFINITO
 // ===============================
 const prevBtn = document.querySelector('.slider-btn.prev');
 const nextBtn = document.querySelector('.slider-btn.next');
 const track = document.querySelector('.slider-track');
+const cards = track.querySelectorAll('.card');
+const gap = 25;
 
 let currentIndex = 0;
 
+function getCardWidth() {
+  return cards[0].offsetWidth + gap;
+}
+
 function updateSlider() {
-  const cardWidth = track.querySelector('.card').offsetWidth + 20; // card + gap
+  const cardWidth = getCardWidth();
+  const totalWidth = track.scrollWidth;
+  const visibleWidth = track.parentElement.offsetWidth;
+
+  // Loop infinito: se passar do último, volta ao início
+  if(currentIndex > cards.length - Math.floor(visibleWidth / cardWidth)) {
+    currentIndex = 0;
+  }
+  if(currentIndex < 0) {
+    currentIndex = cards.length - Math.floor(visibleWidth / cardWidth);
+  }
+
+  track.style.transition = "transform 0.5s ease-in-out";
   track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
 }
 
-prevBtn.addEventListener('click', () => {
-  if (currentIndex > 0) currentIndex--;
-  updateSlider();
-});
-
+// ===============================
+// Eventos das setas
+// ===============================
 nextBtn.addEventListener('click', () => {
-  const maxIndex = track.children.length - Math.floor(track.parentElement.offsetWidth / (track.querySelector('.card').offsetWidth + 20));
-  if (currentIndex < maxIndex) currentIndex++;
+  currentIndex++;
   updateSlider();
 });
 
+prevBtn.addEventListener('click', () => {
+  currentIndex--;
+  updateSlider();
+});
+
+// ===============================
+// Ajuste ao redimensionar a tela
+// ===============================
 window.addEventListener('resize', updateSlider);
 
+// ===============================
+// Microanimação nas setas ao passar o mouse
+// ===============================
+[prevBtn, nextBtn].forEach(btn => {
+  btn.addEventListener('mouseenter', () => btn.style.transform = "translateY(-50%) scale(1.1)");
+  btn.addEventListener('mouseleave', () => btn.style.transform = "translateY(-50%) scale(1)");
+});
