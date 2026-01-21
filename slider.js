@@ -4,11 +4,24 @@
 function toggleInfo(btn) {
   const info = btn.nextElementSibling;
   info.classList.toggle('ativo');
+
   if(info.classList.contains('ativo')) {
-    info.style.maxHeight = info.scrollHeight + 'px';
+    info.style.maxHeight = info.scrollHeight + 'px'; // ajusta dinamicamente ao tamanho do texto
   } else {
     info.style.maxHeight = '0';
   }
+}
+
+// ===============================
+// BARRAS DE NUTRIENTES SEM ANIMAÇÃO
+// ===============================
+function fillBars() {
+  const barras = document.querySelectorAll('.barra');
+  barras.forEach(bar => {
+    const width = bar.getAttribute('data-width');
+    bar.style.width = width;  // preenche sempre conforme data-width
+    bar.style.opacity = "1";
+  });
 }
 
 // ===============================
@@ -17,6 +30,11 @@ function toggleInfo(btn) {
 document.querySelectorAll('.btn-saibamais').forEach(btn => {
   btn.addEventListener('click', () => toggleInfo(btn));
 });
+
+// ===============================
+// EXECUTA BARRAS AO CARREGAR A PÁGINA
+// ===============================
+window.addEventListener('load', fillBars);
 
 // ===============================
 // SLIDER FUNCIONAL COM LOOP INFINITO
