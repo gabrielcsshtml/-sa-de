@@ -375,21 +375,22 @@ footer {
 }
 
 /* ===============================
-   AJUSTE FINAL DAS BARRAS NUTRICIONAIS
+   AJUSTE TEXTO DAS BARRAS NUTRICIONAIS
+   - Apenas o texto, sem afetar layout dos cards
 ================================ */
 .barra span {
-  display: inline-block;      /* garante que o texto seja tratado como bloco dentro da barra */
-  padding-left: 4px;          /* pequeno espaçamento do início */
-  white-space: nowrap;         /* texto não quebra linha */
-  overflow: visible !important; /* força o texto a aparecer */
-  color: #fff;                 /* mantém o texto branco */
+  position: relative;    /* garante que o span fique dentro da barra */
+  left: 4px;             /* pequeno deslocamento do início da barra */
+  white-space: nowrap;    /* impede quebra de linha */
   font-weight: 600;
   font-size: 0.85rem;
+  color: #fff;
 }
 
+/* Responsivo */
 @media(max-width: 480px) {
   .barra span {
     font-size: 0.75rem;
-    padding-left: 2px;
+    left: 2px;
   }
 }
