@@ -374,16 +374,25 @@ footer {
   }
 }
 /* ===============================
-   TEXTO FIXO NAS BARRAS NUTRICIONAIS
+   BARRAS SEMPRE CHEIAS COM TEXTO VISÍVEL
 ================================ */
+.barra {
+  width: 100% !important; /* força a barra a ficar cheia */
+  min-width: 0;            /* remove restrição mínima */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8px;       /* espaço do texto no início */
+  box-sizing: border-box;
+}
+
 .barra span {
-  position: absolute;      /* garante que o texto fique dentro da barra */
-  left: 8px;               /* distancia do início da barra */
-  top: 50%;                /* centraliza verticalmente */
-  transform: translateY(-50%);
-  color: #fff;             /* cor do texto */
+  position: relative;       /* mantém o texto dentro da barra */
+  left: 0;
+  top: auto;
+  transform: none;
+  color: #fff;
   font-weight: 600;
   font-size: 0.85rem;
-  white-space: nowrap;     /* evita quebra de linha */
-  pointer-events: none;    /* não interfere em cliques */
+  white-space: nowrap;
 }
