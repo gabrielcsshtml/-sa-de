@@ -1,5 +1,5 @@
 // ===============================
-// Função para abrir/fechar "Saiba Mais" com transição suave
+// FUNÇÃO "SAIBA MAIS" COM TRANSIÇÃO SUAVE
 // ===============================
 function toggleInfo(btn) {
   const info = btn.nextElementSibling;
@@ -12,18 +12,20 @@ function toggleInfo(btn) {
 }
 
 // ===============================
-// Função para animar as barras de nutrientes (0g com barra mínima)
+// ANIMAÇÃO DAS BARRAS DE NUTRIENTES
 // ===============================
 function animateBars() {
   const barras = document.querySelectorAll('.barra');
 
   barras.forEach((bar, index) => {
     const width = bar.getAttribute('data-width');
-    const valorNumerico = parseFloat(width);
+
+    // largura mínima para barras de 0g ou muito pequenas
+    const minWidth = "12%";
 
     setTimeout(() => {
-      if(valorNumerico === 0) {
-        bar.style.width = "12%";
+      if(width === "0%" || width === "0") {
+        bar.style.width = minWidth;
         bar.style.opacity = "0.6";
       } else {
         bar.style.width = width;
@@ -34,14 +36,14 @@ function animateBars() {
 }
 
 // ===============================
-// Adiciona evento aos botões "Saiba Mais"
+// EVENTO DOS BOTÕES "SAIBA MAIS"
 // ===============================
 document.querySelectorAll('.btn-saibamais').forEach(btn => {
   btn.addEventListener('click', () => toggleInfo(btn));
 });
 
 // ===============================
-// Executa animação quando a página termina de carregar
+// EXECUTA ANIMAÇÃO AO CARREGAR A PÁGINA
 // ===============================
 window.addEventListener('load', animateBars);
 
@@ -53,7 +55,6 @@ const nextBtn = document.querySelector('.slider-btn.next');
 const track = document.querySelector('.slider-track');
 const cards = track.querySelectorAll('.card');
 const gap = 25;
-
 let currentIndex = 0;
 
 function getCardWidth() {
@@ -62,23 +63,19 @@ function getCardWidth() {
 
 function updateSlider() {
   const cardWidth = getCardWidth();
-  const totalWidth = track.scrollWidth;
   const visibleWidth = track.parentElement.offsetWidth;
+  const maxIndex = cards.length - Math.floor(visibleWidth / cardWidth);
 
-  // Loop infinito: se passar do último, volta ao início
-  if(currentIndex > cards.length - Math.floor(visibleWidth / cardWidth)) {
-    currentIndex = 0;
-  }
-  if(currentIndex < 0) {
-    currentIndex = cards.length - Math.floor(visibleWidth / cardWidth);
-  }
+  // loop infinito
+  if(currentIndex > maxIndex) currentIndex = 0;
+  if(currentIndex < 0) currentIndex = maxIndex;
 
   track.style.transition = "transform 0.5s ease-in-out";
   track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
 }
 
 // ===============================
-// Eventos das setas
+// EVENTOS DAS SETAS
 // ===============================
 nextBtn.addEventListener('click', () => {
   currentIndex++;
@@ -91,12 +88,12 @@ prevBtn.addEventListener('click', () => {
 });
 
 // ===============================
-// Ajuste ao redimensionar a tela
+// AJUSTE AO REDIMENSIONAR A TELA
 // ===============================
 window.addEventListener('resize', updateSlider);
 
 // ===============================
-// Microanimação nas setas ao passar o mouse
+// MICROANIMAÇÃO NAS SETAS
 // ===============================
 [prevBtn, nextBtn].forEach(btn => {
   btn.addEventListener('mouseenter', () => btn.style.transform = "translateY(-50%) scale(1.1)");
