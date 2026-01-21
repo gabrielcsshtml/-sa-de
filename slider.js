@@ -1,64 +1,37 @@
-// ===============================
-// Função para abrir/fechar "Saiba Mais" com transição suave
-// ===============================
-function toggleInfo(btn) {
-  const info = btn.nextElementSibling;
-  info.classList.toggle('ativo');
-  if(info.classList.contains('ativo')) {
-    info.style.maxHeight = info.scrollHeight + 'px';
-  } else {
-    info.style.maxHeight = '0';
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".slider-track");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+
+  const cards = document.querySelectorAll(".card");
+  const gap = 30;
+  let index = 0;
+
+  function getCardWidth() {
+    return cards[0].offsetWidth + gap;
   }
-}
 
-// ===============================
-// Função para animar as barras de nutrientes
-// ===============================
-function animateBars() {
-  const barras = document.querySelectorAll('.barra');
-  barras.forEach((bar, index) => {
-    const width = bar.getAttribute('data-width');
-    setTimeout(() => {
-      bar.style.width = width;
-    }, index * 100); // efeito cascata
+  function updateSlider() {
+    const cardWidth = getCardWidth();
+    const translateX = index * cardWidth;
+    track.style.transform = translateX(-${translateX}px);
+  }
+
+  nextBtn.addEventListener("click", () => {
+    const visibleCards = Math.floor(track.parentElement.offsetWidth / getCardWidth());
+    if (index < cards.length - visibleCards) {
+      index++;
+      updateSlider();
+    }
   });
-}
 
-// ===============================
-// Adiciona evento aos botões "Saiba Mais"
-// ===============================
-document.querySelectorAll('.btn-saibamais').forEach(btn => {
-  btn.addEventListener('click', () => toggleInfo(btn));
+  prevBtn.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      updateSlider();
+    }
+  });
+
+  // Ajusta ao redimensionar a tela
+  window.addEventListener("resize", updateSlider);
 });
-
-// ===============================
-// Executa animação quando a página termina de carregar
-// ===============================
-window.addEventListener('load', animateBars);
-
-// ===============================
-// SLIDER FUNCIONAL
-// ===============================
-const prevBtn = document.querySelector('.slider-btn.prev');
-const nextBtn = document.querySelector('.slider-btn.next');
-const track = document.querySelector('.slider-track');
-
-let currentIndex = 0;
-
-function updateSlider() {
-  const cardWidth = track.querySelector('.card').offsetWidth + 20; // card + gap
-  track.style.transform = translateX(${-currentIndex * cardWidth}px);
-}
-
-prevBtn.addEventListener('click', () => {
-  if (currentIndex > 0) currentIndex--;
-  updateSlider();
-});
-
-nextBtn.addEventListener('click', () => {
-  const maxIndex = track.children.length - Math.floor(track.parentElement.offsetWidth / (track.querySelector('.card').offsetWidth + 20));
-  if (currentIndex < maxIndex) currentIndex++;
-  updateSlider();
-});
-
-window.addEventListener('resize', updateSlider);
