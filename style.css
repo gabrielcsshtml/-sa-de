@@ -373,24 +373,50 @@ footer {
     height: 20px;
   }
 }
-
 /* ===============================
-   AJUSTE TEXTO DAS BARRAS NUTRICIONAIS
-   - Apenas o texto, sem afetar layout dos cards
+   BARRAS NUTRICIONAIS CORRIGIDAS
+   - Mantém cards lado a lado
+   - Animação via JS continua
+   - Texto não cortado
 ================================ */
-.barra span {
-  position: relative;    /* garante que o span fique dentro da barra */
-  left: 4px;             /* pequeno deslocamento do início da barra */
-  white-space: nowrap;    /* impede quebra de linha */
+.barra {
+  position: relative;       /* permite posicionar span interno */
+  width: 100%;              /* largura total do container */
+  background-color: #ddd;   /* cor de fundo da barra */
+  border-radius: 5px;
+  height: 24px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.barra .preenchimento {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 0;                 /* será animado via JS */
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  white-space: nowrap;
+  color: #fff;
   font-weight: 600;
   font-size: 0.85rem;
-  color: #fff;
+  transition: width 1s ease;
 }
+
+/* Cores específicas */
+.barra.acucar .preenchimento { background-color: var(--cor-acucar); }
+.barra.gordura .preenchimento { background-color: var(--cor-gordura); }
+.barra.sal .preenchimento { background-color: var(--cor-sal); }
 
 /* Responsivo */
 @media(max-width: 480px) {
-  .barra span {
+  .barra {
+    height: 20px;
+  }
+  .barra .preenchimento {
     font-size: 0.75rem;
-    left: 2px;
+    padding: 0 4px;
   }
 }
