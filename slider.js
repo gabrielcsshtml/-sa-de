@@ -12,40 +12,11 @@ function toggleInfo(btn) {
 }
 
 // ===============================
-// ANIMAÇÃO DAS BARRAS DE NUTRIENTES
-// ===============================
-function animateBars() {
-  const barras = document.querySelectorAll('.barra');
-
-  barras.forEach((bar, index) => {
-    const width = bar.getAttribute('data-width');
-
-    // largura mínima para barras de 0g ou muito pequenas
-    const minWidth = "12%";
-
-    setTimeout(() => {
-      if(width === "0%" || width === "0") {
-        bar.style.width = minWidth;
-        bar.style.opacity = "0.6";
-      } else {
-        bar.style.width = width;
-        bar.style.opacity = "1";
-      }
-    }, index * 100); // efeito cascata
-  });
-}
-
-// ===============================
 // EVENTO DOS BOTÕES "SAIBA MAIS"
 // ===============================
 document.querySelectorAll('.btn-saibamais').forEach(btn => {
   btn.addEventListener('click', () => toggleInfo(btn));
 });
-
-// ===============================
-// EXECUTA ANIMAÇÃO AO CARREGAR A PÁGINA
-// ===============================
-window.addEventListener('load', animateBars);
 
 // ===============================
 // SLIDER FUNCIONAL COM LOOP INFINITO
