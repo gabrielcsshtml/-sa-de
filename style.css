@@ -163,10 +163,12 @@ p {
 .barra-container {
   margin-top: 15px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* espaço entre barras */
 }
-
 /* ===============================
-   BARRAS NUTRICIONAIS (MODIFICADAS)
+   BARRAS NUTRICIONAIS (AJUSTADAS)
 ================================ */
 .barra {
   height: 24px;
@@ -176,13 +178,15 @@ p {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 10px;
+  padding: 0 6px; /* padding menor para caber texto */
   font-size: 0.85rem;
   font-weight: 600;
   width: 0;
-  min-width: 60px;               /* permite texto mesmo em 0g */
-  overflow: hidden;
+  min-width: 60px; /* garante que barras 0g apareçam */
+  box-sizing: border-box; /* padding não quebra largura */
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: width 1s ease, opacity 0.4s ease;
 }
 
@@ -190,6 +194,9 @@ p {
 .barra.gordura { background-color: var(--cor-gordura); }
 .barra.sal { background-color: var(--cor-sal); }
 
+/* ===============================
+   BOTÕES SAIBA MAIS
+================================ */
 .btn-saibamais {
   margin-top: 10px;
   padding: 10px 20px;
@@ -207,6 +214,9 @@ p {
   transform: scale(1.03);
 }
 
+/* ===============================
+   INFO EXTRA (COLAPSÁVEL)
+================================ */
 .info-extra {
   max-height: 0;
   overflow: hidden;
@@ -231,6 +241,7 @@ p {
 .cards-comidas .card {
   flex: 0 0 260px;
 }
+
 /* ===============================
    CALCULADORA DE NUTRIENTES
 ================================ */
