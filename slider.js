@@ -1,26 +1,25 @@
 // ===============================
-// FUNÇÃO "SAIBA MAIS" COM TRANSIÇÃO SUAVE
+// FUNÇÃO "SAIBA MAIS" SEM CORTE
 // ===============================
 function toggleInfo(btn) {
   const info = btn.nextElementSibling;
-  info.classList.toggle('ativo');
-
-  if(info.classList.contains('ativo')) {
-    info.style.maxHeight = info.scrollHeight + 'px'; // ajusta dinamicamente ao tamanho do texto
+  if(info.style.display === 'block') {
+    info.style.display = 'none';
   } else {
-    info.style.maxHeight = '0';
+    info.style.display = 'block';
   }
 }
 
 // ===============================
-// BARRAS DE NUTRIENTES SEM ANIMAÇÃO
+// DEFINIÇÃO DAS BARRAS CHEIAS
 // ===============================
-function fillBars() {
+function setFullBars() {
   const barras = document.querySelectorAll('.barra');
+
   barras.forEach(bar => {
-    const width = bar.getAttribute('data-width');
-    bar.style.width = width;  // preenche sempre conforme data-width
-    bar.style.opacity = "1";
+    const width = bar.getAttribute('data-width') || '100%';
+    bar.style.width = width;
+    bar.style.opacity = '1';
   });
 }
 
@@ -32,9 +31,12 @@ document.querySelectorAll('.btn-saibamais').forEach(btn => {
 });
 
 // ===============================
-// EXECUTA BARRAS AO CARREGAR A PÁGINA
+// EXECUTA AO CARREGAR A PÁGINA
 // ===============================
-window.addEventListener('load', fillBars);
+window.addEventListener('load', () => {
+  setFullBars();
+  updateSlider();
+});
 
 // ===============================
 // SLIDER FUNCIONAL COM LOOP INFINITO
