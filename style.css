@@ -2,17 +2,16 @@
    VARIÁVEIS DE CORES
 ================================ */
 :root {
-  --cor-primaria: #2C3E70; /* azul da escola */
+  --cor-primaria: #2C3E70; /* azul suave da escola */
   --cor-secundaria: #000000; /* preto */
   --cor-fundo: #f5f7fa; /* fundo leve */
-  --cor-texto: #111111; /* texto */
-  --cor-acucar: #F87171; /* vermelho */
-  --cor-gordura: #FBBF24; /* amarelo */
-  --cor-sal: #3B82F6; /* azul */
-  --cor-calorias: #34D399; /* verde */
+  --cor-texto: #111111;
+  --cor-acucar: #F87171; /* vermelho suave */
+  --cor-gordura: #FBBF24; /* amarelo pastel */
+  --cor-sal: #34D399; /* verde suave */
   --cor-card: #ffffff;
   --cor-botao: #2C3E70;
-  --cor-botao-hover: #1A2A50;
+  --cor-botao-hover: #3B4F8A;
   --transicao: 0.3s;
 }
 
@@ -20,17 +19,17 @@
    RESET E BODY
 ================================ */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
 }
 
 body {
+  font-family: 'Poppins', Arial, sans-serif;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  line-height: 1.5;
-  padding: 20px;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* ===============================
@@ -60,6 +59,34 @@ header .logo {
   height: 100px;
   margin-right: 20px;
   border-radius: 10px;
+}
+
+header .menu a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 600;
+  position: relative;
+  transition: color var(--transicao);
+}
+
+header .menu a:hover {
+  color: #FFD700;
+}
+
+header .menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #FFD700;
+  transition: width var(--transicao);
+}
+
+header .menu a:hover::after {
+  width: 100%;
 }
 
 /* ===============================
@@ -134,16 +161,15 @@ p {
 .slider-btn.prev { left: 10px; }
 .slider-btn.next { right: 10px; }
 
-/* ===============================
-   CARD
-================================ */
 .card {
+  border:   15px solid #ddd;
   border-radius: 15px;
-  padding: 20px;
+  padding: 30px;
   flex: 0 0 265px;
   background-color: var(--cor-card);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
+  /* overflow: hidden; ❌ REMOVIDO PARA “Saiba Mais” */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -159,53 +185,37 @@ p {
   width: 230px;
   height: 230px;
   object-fit: contain;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 
-/* ===============================
-   BARRAS DE NUTRIENTES
-================================ */
 .barra-container {
+  margin-top: 15px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 10px;
 }
 
 .barra {
-  position: relative;
-  height: 20px;
-  background-color: #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
+  height: 24px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #fff;
   display: flex;
   align-items: center;
-  padding-left: 10px;
-  color: #fff;
-  font-size: 0.8rem;
+  justify-content: flex-start;
+  padding: 0 10px;
+  font-size: 0.85rem;
   font-weight: 600;
-}
-
-.barra::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   transition: width 1s ease;
 }
 
-.barra.acucar::after { background-color: var(--cor-acucar); }
-.barra.gordura::after { background-color: var(--cor-gordura); }
-.barra.sal::after { background-color: var(--cor-sal); }
-.barra.calorias::after { background-color: var(--cor-calorias); }
+.barra.acucar { background-color: var(--cor-acucar); }
+.barra.gordura { background-color: var(--cor-gordura); }
+.barra.sal { background-color: var(--cor-sal); }
 
-/* ===============================
-   BOTÃO SAIBA MAIS
-================================ */
 .btn-saibamais {
   margin-top: 10px;
   padding: 10px 20px;
@@ -223,20 +233,15 @@ p {
   transform: scale(1.03);
 }
 
-/* ===============================
-   INFO EXTRA
-================================ */
 .info-extra {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
   padding: 0 15px;
-  text-align: justify;
 }
 
 .info-extra.ativo {
   padding: 12px;
-  max-height: 500px; /* suficiente para texto completo */
 }
 
 /* ===============================
@@ -274,7 +279,8 @@ p {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.calc-container select, .calc-container input[type="number"] {
+.calc-container select,
+.calc-container input[type="number"] {
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -283,7 +289,8 @@ p {
   transition: 0.2s;
 }
 
-.calc-container select:focus, .calc-container input[type="number"]:focus {
+.calc-container select:focus,
+.calc-container input[type="number"]:focus {
   border-color: var(--cor-primaria);
   box-shadow: 0 0 6px rgba(30, 58, 138, 0.3);
 }
@@ -342,6 +349,7 @@ footer {
 
 @media(max-width: 768px) {
   header.topo { flex-direction: column; align-items: center; }
+  header .menu { margin-top: 15px; }
   .card { flex: 0 0 200px; }
   .card-img { width: 160px; height: 160px; }
   .slider-btn { width: 35px; height: 35px; font-size: 1.2rem; }
@@ -351,7 +359,21 @@ footer {
   .card { flex: 0 0 180px; }
   .card-img { width: 140px; height: 140px; }
   h2 { font-size: 1.5rem; }
-  .calc-container { padding: 15px; }
-  .calc-container select, .calc-container input[type="number"] { width: 100%; margin-bottom: 10px; }
-  .calc-container .btn-saibamais { width: 100%; margin-top: 10px; }
+  .calc-container {
+    padding: 15px;
+  }
+
+  .calc-container select,
+  .calc-container input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .calc-container .btn-saibamais {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
+
+
+
