@@ -47,7 +47,7 @@ let currentIndex = 0;
 
 function updateSlider() {
   const cardWidth = track.querySelector('.card').offsetWidth + 20; // card + gap
-  track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+  track.style.transform = translateX(${-currentIndex * cardWidth}px);
 }
 
 prevBtn.addEventListener('click', () => {
@@ -62,4 +62,3 @@ nextBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', updateSlider);
-
