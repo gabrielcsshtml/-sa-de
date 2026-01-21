@@ -170,7 +170,7 @@ p {
 }
 
 /* ===============================
-   BARRAS NUTRICIONAIS (AJUSTADAS)
+   BARRAS NUTRICIONAIS
 ================================ */
 .barra {
   height: 24px;
@@ -183,8 +183,8 @@ p {
   padding: 0 6px;
   font-size: 0.85rem;
   font-weight: 600;
-  width: 0; /* começa em 0 e anima via JS */
-  min-width: 12%; /* garante que barras muito pequenas apareçam */
+  width: 0; /* anima via JS */
+  min-width: 12%;
   box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
@@ -228,8 +228,9 @@ p {
 
 .info-extra.ativo {
   padding: 12px;
-  max-height: 200px; /* garante visibilidade do conteúdo */
+  max-height: 200px;
 }
+
 /* ===============================
    CARDS SAUDÁVEIS
 ================================ */
@@ -243,7 +244,6 @@ p {
 .cards-comidas .card {
   flex: 0 0 260px;
 }
-
 /* ===============================
    CALCULADORA DE NUTRIENTES
 ================================ */
