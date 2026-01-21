@@ -1,6 +1,6 @@
-// ================================
-// CALCULADORA POR PORÇÃO
-// ================================
+/* ===============================
+   CALCULADORA POR PORÇÃO
+================================ */
 const comidaSelect = document.getElementById("comida");
 const quantidadeInput = document.getElementById("quantidade");
 const calcularBtn = document.getElementById("calcular");
@@ -9,7 +9,6 @@ const resGordura = document.getElementById("res-gordura");
 const resSal = document.getElementById("res-sal");
 const resCaloria = document.getElementById("res-caloria");
 
-// Dados por porção
 const alimentos = {
   nutella: { acucar: 22, gordura: 22, sal: 0.3, caloria: 280 },
   milka: { acucar: 56, gordura: 30, sal: 0.3, caloria: 540 },
@@ -29,20 +28,17 @@ const alimentos = {
 calcularBtn.addEventListener("click", () => {
   const alimento = comidaSelect.value;
   const quantidade = Number(quantidadeInput.value) || 1;
-
   if (!alimento) return alert("Selecione um alimento!");
-
   const dados = alimentos[alimento];
-
   resAcucar.textContent = (dados.acucar * quantidade).toFixed(1);
   resGordura.textContent = (dados.gordura * quantidade).toFixed(1);
   resSal.textContent = (dados.sal * quantidade).toFixed(1);
   resCaloria.textContent = (dados.caloria * quantidade).toFixed(0);
 });
 
-// ================================
-// CALCULADORA POR GRAMA
-// ================================
+/* ===============================
+   CALCULADORA POR GRAMA
+================================ */
 const comidaGramaSelect = document.getElementById("comida-grama");
 const gramasInput = document.getElementById("gramas");
 const calcularGramaBtn = document.getElementById("calcular-grama");
@@ -51,7 +47,6 @@ const resGorduraGrama = document.getElementById("res-gordura-grama");
 const resSalGrama = document.getElementById("res-sal-grama");
 const resCaloriaGrama = document.getElementById("res-caloria-grama");
 
-// Dados por 100g/ml
 const alimentosGrama = {
   nutella: { acucar: 42.3, gordura: 42.3, sal: 0.6, caloria: 540 },
   milka: { acucar: 56, gordura: 30, sal: 0.3, caloria: 540 },
@@ -71,13 +66,10 @@ const alimentosGrama = {
 calcularGramaBtn.addEventListener("click", () => {
   const alimento = comidaGramaSelect.value;
   const gramas = Number(gramasInput.value);
-
   if (!alimento) return alert("Selecione um alimento!");
   if (!gramas || gramas <= 0) return alert("Digite uma quantidade válida em gramas!");
-
   const dados = alimentosGrama[alimento];
   const fator = gramas / 100;
-
   resAcucarGrama.textContent = (dados.acucar * fator).toFixed(1);
   resGorduraGrama.textContent = (dados.gordura * fator).toFixed(1);
   resSalGrama.textContent = (dados.sal * fator).toFixed(1);
