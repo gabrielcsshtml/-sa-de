@@ -79,5 +79,3 @@ calcularGramaBtn.addEventListener("click", () => {
   resGorduraGrama.textContent = (dados.gordura * fator).toFixed(1);
   resSalGrama.textContent = (dados.sal * fator).toFixed(1);
 });
-
-
