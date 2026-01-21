@@ -373,3 +373,23 @@ footer {
     height: 20px;
   }
 }
+
+/* ===============================
+   AJUSTE FINAL DAS BARRAS NUTRICIONAIS
+================================ */
+.barra span {
+  display: inline-block;      /* garante que o texto seja tratado como bloco dentro da barra */
+  padding-left: 4px;          /* pequeno espaçamento do início */
+  white-space: nowrap;         /* texto não quebra linha */
+  overflow: visible !important; /* força o texto a aparecer */
+  color: #fff;                 /* mantém o texto branco */
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+@media(max-width: 480px) {
+  .barra span {
+    font-size: 0.75rem;
+    padding-left: 2px;
+  }
+}
