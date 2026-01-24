@@ -51,7 +51,7 @@ calcularBtn.addEventListener("click", () => {
 // CALCULADORA POR GRAMA
 // ================================
 const comidaGramaSelect = document.getElementById("comida-grama");
-const gramasInput = document.getElementById("gramas");
+const gramasInput = document.getElementById("quantidade-grama");
 const calcularGramaBtn = document.getElementById("calcular-grama");
 
 const resAcucarGrama = document.getElementById("res-acucar-grama");
@@ -82,3 +82,4 @@ calcularGramaBtn.addEventListener("click", () => {
   resGorduraGrama.textContent = (dados.gordura * fator).toFixed(1);
   resSalGrama.textContent = (dados.sal * fator).toFixed(2);
 });
+
