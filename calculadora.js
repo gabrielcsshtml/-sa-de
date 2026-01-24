@@ -9,9 +9,7 @@ const resGordura = document.getElementById("res-gordura");
 const resSal = document.getElementById("res-sal");
 const resCalorias = document.getElementById("res-calorias");
 
-
-// Dados por porção
- const alimentos = {
+const alimentos = {
   nutella: { acucar: 22, gordura: 22, sal: 0.3, calorias: 265 },
   milka: { acucar: 56, gordura: 30, sal: 0.3, calorias: 539 },
   bolinho: { acucar: 25, gordura: 15, sal: 0.4, calorias: 320 },
@@ -39,21 +37,18 @@ calcularBtn.addEventListener("click", () => {
   resGordura.textContent = (dados.gordura * quantidade).toFixed(1);
   resSal.textContent = (dados.sal * quantidade).toFixed(1);
   resCalorias.textContent = (dados.calorias * quantidade).toFixed(0);
-
 });
 
 // ================================
 // CALCULADORA POR GRAMA
 // ================================
 const comidaGramaSelect = document.getElementById("comida-grama");
-const gramasInput = document.getElementById("quantidade-grama");
+const gramasInput = document.getElementById("quantidade-grama"); // <-- confere com o HTML
 const calcularGramaBtn = document.getElementById("calcular-grama");
 const resAcucarGrama = document.getElementById("res-acucar-grama");
 const resGorduraGrama = document.getElementById("res-gordura-grama");
 const resSalGrama = document.getElementById("res-sal-grama");
 const resCaloriasGrama = document.getElementById("res-calorias-grama");
-
-
 
 const alimentosGrama = {
   nutella: { acucar: 42.3, gordura: 42.3, sal: 0.6, calorias: 546 },
@@ -71,7 +66,6 @@ const alimentosGrama = {
   coca: { acucar: 10.6, gordura: 0, sal: 0, calorias: 42 }
 };
 
-
 calcularGramaBtn.addEventListener("click", () => {
   const alimento = comidaGramaSelect.value;
   const gramas = Number(gramasInput.value);
@@ -87,4 +81,3 @@ calcularGramaBtn.addEventListener("click", () => {
   resSalGrama.textContent = (dados.sal * fator).toFixed(1);
   resCaloriasGrama.textContent = (dados.calorias * fator).toFixed(0);
 });
-
