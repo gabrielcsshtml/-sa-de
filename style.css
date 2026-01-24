@@ -195,6 +195,17 @@ p {
 .barra.acucar { background-color: var(--cor-acucar); }
 .barra.gordura { background-color: var(--cor-gordura); }
 .barra.sal { background-color: var(--cor-sal); }
+.barra.calorias { 
+  background-color: #FDBA74; /* laranja suave para calorias */
+}
+
+.barra.calorias .preenchimento span {
+  color: #000; /* texto preto para contraste */
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 
 /* ===============================
    BOTÕES SAIBA MAIS
@@ -391,5 +402,6 @@ footer {
   font-size: 0.85rem;
   white-space: nowrap;
 }
+
 
 
