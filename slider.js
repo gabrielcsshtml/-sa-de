@@ -90,3 +90,34 @@ window.addEventListener('resize', updateSlider);
   btn.addEventListener('mouseenter', () => btn.style.transform = "translateY(-50%) scale(1.1)");
   btn.addEventListener('mouseleave', () => btn.style.transform = "translateY(-50%) scale(1)");
 });
+
+
+// MODAL PRODUTOS
+const modal=document.getElementById('produtoModal');
+if(modal){
+const modalImg=document.getElementById('modalImg');
+const modalTitulo=document.getElementById('modalTitulo');
+const modalTexto=document.getElementById('modalTexto');
+
+document.querySelectorAll('.produto-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+   const card=btn.closest('.card');
+   const img=card.querySelector('.card-img');
+   const titulo=card.querySelector('h3');
+
+   modalImg.src=img ? img.src : '';
+   modalTitulo.textContent=titulo ? titulo.textContent : '';
+   modalTexto.textContent=btn.dataset.info || '';
+
+   modal.classList.add('ativo');
+ });
+});
+
+document.querySelector('.fechar-modal').addEventListener('click',()=>{
+ modal.classList.remove('ativo');
+});
+
+modal.addEventListener('click',(e)=>{
+ if(e.target===modal){modal.classList.remove('ativo');}
+});
+}
