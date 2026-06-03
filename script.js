@@ -1,39 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".slider-track");
-  const prevBtn = document.querySelector(".slider-btn.prev");
-  const nextBtn = document.querySelector(".slider-btn.next");
+// ===============================
+// MODAL SAIBA MAIS
+// ===============================
 
-  const cards = document.querySelectorAll(".card");
-  const gap = 30;
-  let index = 0;
+const modal = document.getElementById("modal-produto");
+const modalImg = document.getElementById("modal-img");
+const modalTitulo = document.getElementById("modal-titulo");
+const modalTexto = document.getElementById("modal-texto");
+const fecharModal = document.querySelector(".fechar-modal");
 
-  function getCardWidth() {
-    return cards[0].offsetWidth + gap;
-  }
+document.querySelectorAll(".btn-saibamais").forEach(btn => {
 
-  function updateSlider() {
-    const cardWidth = getCardWidth();
-    const translateX = index * cardWidth;
-    track.style.transform = `translateX(-${translateX}px)`;
-  }
+  // ignora os botões da calculadora
+  if(btn.id === "calcular" || btn.id === "calcular-grama") return;
 
-  nextBtn.addEventListener("click", () => {
-    const visibleCards = Math.floor(track.parentElement.offsetWidth / getCardWidth());
-    if (index < cards.length - visibleCards) {
-      index++;
-      updateSlider();
-    }
+  btn.addEventListener("click", () => {
+
+    const card = btn.closest(".card");
+
+    const img = card.querySelector(".card-img").src;
+    const titulo = card.querySelector("h3").textContent;
+    const texto = card.querySelector(".info-extra").textContent;
+
+    modalImg.src = img;
+    modalTitulo.textContent = titulo;
+    modalTexto.textContent = texto;
+
+    modal.classList.add("ativo");
   });
 
-  prevBtn.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      updateSlider();
-    }
-  });
-
-  // Ajusta ao redimensionar a tela
-  window.addEventListener("resize", updateSlider);
 });
 
+fecharModal.addEventListener("click", () => {
+  modal.classList.remove("ativo");
+});
 
+modal.addEventListener("click", (e) => {
+  if(e.target === modal){
+    modal.classList.remove("ativo");
+  }
+});
