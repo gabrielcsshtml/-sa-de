@@ -93,7 +93,7 @@ window.addEventListener('resize', updateSlider);
 
 
 // MODAL PRODUTOS
-const modal=document.getElementById('produtoModal');
+const modalProduto=document.getElementById('produtoModal');
 if(modal){
 const modalImg=document.getElementById('modalImg');
 const modalTitulo=document.getElementById('modalTitulo');
